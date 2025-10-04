@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5x3l4b6qhej3"]
+
+[ext_resource type="PackedScene" path="res://Objects/player.tscn" id="1_a3xu4"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="2_t45hs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw3ds"]
+size = Vector2(128, 128)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_a3xu4")]
+position = Vector2(576, 324)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = true
+
+[node name="Floor" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 1652.0
+offset_bottom = 1148.0
+color = Color(0.2, 0.25, 0.2, 1)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Obstacle1" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(300, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Obstacle1"]
+modulate = Color(0.8, 0.4, 0.4, 1)
+texture = ExtResource("2_t45hs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle1"]
+shape = SubResource("RectangleShape2D_yw3ds")
+
+[node name="Obstacle2" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(800, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Obstacle2"]
+modulate = Color(0.8, 0.4, 0.4, 1)
+texture = ExtResource("2_t45hs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle2"]
+shape = SubResource("RectangleShape2D_yw3ds")
+
+[node name="Obstacle3" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(500, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Obstacle3"]
+modulate = Color(0.8, 0.4, 0.4, 1)
+texture = ExtResource("2_t45hs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle3"]
+shape = SubResource("RectangleShape2D_yw3ds")
